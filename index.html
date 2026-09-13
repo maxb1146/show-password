@@ -18,43 +18,58 @@
   <main>
     <header>
       <div class="mark" aria-hidden="true"><svg width="31" height="31" viewBox="0 0 32 32" fill="none"><path d="M3.5 16s4.5-7 12.5-7 12.5 7 12.5 7-4.5 7-12.5 7S3.5 16 3.5 16Z" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="3.5" fill="currentColor"/><path d="M10 26h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-      <h1>Показати пароль</h1>
-      <p class="lead">Просте розширення для тимчасового перегляду прихованих полів пароля на поточній сторінці.</p>
-      <div class="chips"><span class="chip">60 секунд</span><span class="chip">Без серверів</span><span class="chip">Без збору даних</span></div>
+      <h1 data-i18n="name">Показати пароль</h1>
+      <p class="lead" data-i18n="lead">Просте розширення для тимчасового перегляду прихованих полів пароля на поточній сторінці.</p>
+      <div class="chips"><span class="chip" data-i18n="sixty">60 секунд</span><span class="chip" data-i18n="noServers">Без серверів</span><span class="chip" data-i18n="noCollection">Без збору даних</span></div>
     </header>
 
     <section>
-      <h2>Як це працює</h2>
+      <h2 data-i18n="howItWorks">Як це працює</h2>
       <ol>
-        <li>Відкрийте сторінку з полем пароля.</li>
-        <li>Натисніть розширення → «Показати на 60 секунд».</li>
-        <li>Через 60 секунд пароль автоматично знову буде приховано.</li>
+        <li data-i18n="stepOne">Відкрийте сторінку з полем пароля.</li>
+        <li data-i18n="stepTwo">Натисніть розширення → «Показати на 60 секунд».</li>
+        <li data-i18n="stepThree">Через 60 секунд пароль автоматично знову буде приховано.</li>
       </ol>
-      <p class="note">Пароль можна приховати раніше кнопкою «Сховати зараз».</p>
+      <p class="note" data-i18n="hideEarly">Пароль можна приховати раніше кнопкою «Сховати зараз».</p>
     </section>
 
     <section id="privacy">
-      <h2>Конфіденційність</h2>
-      <p>Уся робота виконується локально у браузері. Розширення не збирає, не зберігає та не передає персональні дані, паролі, історію перегляду або вміст сторінок.</p>
-      <p>Воно не використовує зовнішні сервери, analytics, telemetry, tracking чи remote code.</p>
+      <h2 data-i18n="privacy">Конфіденційність</h2>
+      <p data-i18n="privacyIntro">Уся робота виконується локально у браузері. Розширення не збирає, не зберігає та не передає персональні дані, паролі, історію перегляду або вміст сторінок.</p>
+      <p data-i18n="privacyNoExternal">Воно не використовує зовнішні сервери, analytics, telemetry, tracking чи remote code.</p>
       <div class="permissions" id="permissions">
-        <div class="permission"><strong><code>activeTab</code></strong> — тимчасовий доступ до поточної вкладки після явної дії користувача.</div>
-        <div class="permission"><strong><code>scripting</code></strong> — потрібен для тимчасового показу та повторного приховування password-полів на цій вкладці.</div>
+        <div class="permission"><strong><code>activeTab</code></strong> — <span data-i18n="activeTab">тимчасовий доступ до поточної вкладки після явної дії користувача.</span></div>
+        <div class="permission"><strong><code>scripting</code></strong> — <span data-i18n="scripting">потрібен для тимчасового показу та повторного приховування password-полів на цій вкладці.</span></div>
       </div>
-      <p><strong>Розширення не має постійного доступу до всіх вебсайтів.</strong></p>
+      <p><strong data-i18n="noPermanentAccess">Розширення не має постійного доступу до всіх вебсайтів.</strong></p>
     </section>
 
     <section>
-      <h2>Зберігання даних</h2>
-      <p>Розширення не зберігає паролі або інші дані користувача.</p>
+      <h2 data-i18n="dataStorage">Зберігання даних</h2>
+      <p data-i18n="dataStorageText">Розширення не зберігає паролі або інші дані користувача.</p>
     </section>
 
     <section id="support">
-      <h2>Підтримка</h2>
-      <p>Якщо ви знайшли помилку або маєте пропозицію, зв’яжіться з розробником: <a href="mailto:[EMAIL]">[EMAIL]</a>.</p>
+      <h2 data-i18n="support">Підтримка</h2>
+      <p><span data-i18n="supportText">Якщо ви знайшли помилку або маєте пропозицію, зв’яжіться з розробником:</span> <a href="mailto:maks7sim@gmail.com">maks7sim@gmail.com</a>.</p>
     </section>
 
-    <footer><span>Показати пароль<br>Версія 1.0.0</span><span><a href="#privacy">Privacy Policy</a> · <a href="#support">Support</a></span></footer>
+    <footer><span><span data-i18n="name">Показати пароль</span><br><span data-i18n="version">Версія</span> 1.0.0</span><span><a href="#privacy">Privacy Policy</a> · <a href="#support" data-i18n="support">Підтримка</a></span></footer>
   </main>
+  <script>
+    const useUkrainian = /^(uk|ru)(?:-|$)/i.test(navigator.language || "");
+    const copy = {
+      uk: {
+        pageTitle: "Показати пароль — Privacy Policy", name: "Показати пароль", lead: "Просте розширення для тимчасового перегляду прихованих полів пароля на поточній сторінці.", sixty: "60 секунд", noServers: "Без серверів", noCollection: "Без збору даних", howItWorks: "Як це працює", stepOne: "Відкрийте сторінку з полем пароля.", stepTwo: "Натисніть розширення → «Показати на 60 секунд».", stepThree: "Через 60 секунд пароль автоматично знову буде приховано.", hideEarly: "Пароль можна приховати раніше кнопкою «Сховати зараз».", privacy: "Конфіденційність", privacyIntro: "Уся робота виконується локально у браузері. Розширення не збирає, не зберігає та не передає персональні дані, паролі, історію перегляду або вміст сторінок.", privacyNoExternal: "Воно не використовує зовнішні сервери, analytics, telemetry, tracking чи remote code.", activeTab: "тимчасовий доступ до поточної вкладки після явної дії користувача.", scripting: "потрібен для тимчасового показу та повторного приховування password-полів на цій вкладці.", noPermanentAccess: "Розширення не має постійного доступу до всіх вебсайтів.", dataStorage: "Зберігання даних", dataStorageText: "Розширення не зберігає паролі або інші дані користувача.", support: "Підтримка", supportText: "Якщо ви знайшли помилку або маєте пропозицію, зв’яжіться з розробником:", version: "Версія"
+      },
+      en: {
+        pageTitle: "Show Password — Privacy Policy", name: "Show Password", lead: "A simple extension for temporarily viewing hidden password fields on the current page.", sixty: "60 seconds", noServers: "No servers", noCollection: "No data collection", howItWorks: "How it works", stepOne: "Open a page with a password field.", stepTwo: "Open the extension and select “Show for 60 seconds”.", stepThree: "After 60 seconds, the password is hidden again automatically.", hideEarly: "You can hide the password earlier with the “Hide now” button.", privacy: "Privacy", privacyIntro: "All processing happens locally in the browser. The extension does not collect, save, or transmit personal data, passwords, browsing history, or page content.", privacyNoExternal: "It does not use external servers, analytics, telemetry, tracking, or remote code.", activeTab: "temporary access to the current tab after an explicit user action.", scripting: "needed to temporarily reveal and hide password fields in that tab.", noPermanentAccess: "The extension does not have permanent access to all websites.", dataStorage: "Data storage", dataStorageText: "The extension does not store passwords or other user data.", support: "Support", supportText: "If you found an issue or have a suggestion, contact the developer:", version: "Version"
+      }
+    };
+    const text = copy[useUkrainian ? "uk" : "en"];
+    document.documentElement.lang = useUkrainian ? "uk" : "en";
+    document.title = text.pageTitle;
+    document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = text[element.dataset.i18n]; });
+  </script>
 </body>
 </html>
